@@ -1,0 +1,39 @@
+S0
+
+Thank you for being here. This presentation introduces myositis, summarizes what is currently known and unknown, and explains why we focus on investigating the role of MDA5.
+
+S1
+
+Adaptive systems generate enormous diversity and memory. Most self-reactive B cells are removed, but a small number can escape mechanisms of tolerance. Although these events are rare, they can contribute to a wide range of disorders affecting either specific tissues or multiple organ systems. Today we know more than 100 autoimmune diseases.
+
+S2
+
+Myositis is associated with distinct autoantibody profiles and clinical features. Developing targeted therapies requires a deeper understanding of the mechanisms driving disease. Today we focus on myositis and the factors believed to contribute to its development.
+
+S3
+
+MDA5 is a receptor known to play an important role in normal biological responses. It senses viral RNA, interacts with several signaling pathways and regulates the type I interferon pathway. However, it is unclear how its canonical functions become dysregulated and contribute to disease.
+
+S4
+
+Many consequences of myositis have been described in patients, but several major questions remain unanswered. It is unclear how the process begins, what drives sustained activity, or which mechanisms contribute to tissue damage over time.
+
+S5
+
+Our group approaches these questions from multiple directions. We hypothesize that MDA5 contributes both directly through its primary function and indirectly through interactions with B cells and other cellular compartments.
+
+S6
+
+We propose that interactions between MDA5, the type I interferon pathway and RIG-I create a self-sustaining cycle that maintains activity even when the initial trigger is gone. These interactions may also contribute to chronic disease and relapses in patients.
+
+S7
+
+To investigate these questions, we isolated and characterized B cells associated with MDA5. We measured their properties and identified their relationships and origin to better understand how they contribute to the disease mechanism. We found that these cells share features but have distinct origins.
+
+S8
+
+Our analyses generated multiple hypotheses. We observed that some features were expected, whereas others showed developmental pathways that differed from established models. Therefore, these results suggest that alternative mechanisms may exist.
+
+S9
+
+Overall, by integrating data from multiple tissues and experimental approaches, we aim to connect the major observations and generate a unified model. Together, these data support a model in which MDA5, the type I interferon pathway and RIG-I drive pathology, and they confirm the need for treatment strategies that target these pathways. It is still unknown whether this can be achieved in every patient.

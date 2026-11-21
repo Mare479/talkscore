@@ -1,0 +1,19 @@
+Package: talkscore
+Title: Semantic Analysis and Scoring of Scientific Presentations
+Version: 0.0.0.9000
+Authors@R:
+    person("Marina", "Galesic", , "marina.galesic@ki.se", role = c("aut", "cre"))
+Description: TalkScore is an R package that uses semantic analysis of
+    presentation notes to classify content into categories such as
+    background, evidence, conclusions, and clinical relevance,
+    generating scores to evaluate scientific communication quality.
+    Future versions will use automated language analysis to distinguish
+    talks for scientific or public audiences without manually curated
+    keyword lists.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+Config/roxygen2/version: 8.1.1
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
