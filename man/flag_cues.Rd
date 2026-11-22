@@ -12,7 +12,7 @@ flag_cues(
   positive = c("remarkably", "valuable", "unique", "efficient", "remission",
     "motivation", "important", "significant", "strong", "perfect"),
   negative = c("unknown", "unclear", "unresolved", "relapse", "damage", "injury",
-    "death", "lymphopenia", "pathogenic", "deadliest", "poorly")
+    "death", , "pathogenic", "deadliest", "poorly")
 )
 }
 \arguments{
@@ -26,5 +26,5 @@ flag_cues(
 \code{s} with columns \code{conclusion}, \code{n_pos}, \code{n_neg}.
 }
 \description{
-Matches sentences against cue-phrase and word lists.
+Matches sentences against phrases and word lists.
 }

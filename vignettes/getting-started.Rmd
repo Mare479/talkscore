@@ -1,0 +1,81 @@
+---
+title: "Talkscore-vignette"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{getting-started}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>")
+```
+
+```{r setup}
+library(talkscore)
+```
+
+```{r talkscore-setup}
+talk <- read_talk(f)
+print(class(talk))
+head(talk)
+
+s <- split_sentences(talk) 
+head(s)
+```
+
+#### Detect terms carrying scientific novelty 
+```{r novelty}
+novelty <- flag_novelty(s)
+novelty
+```
+
+#### Evaluate balance between facts and interpretation (1 = perfect balance).
+```{r knowledge_building}
+knowledge_building(s) 
+```
+
+#### Evaluate conclusion density by calculating proportion of sentences containing a conclusion word per slide. Returns overall score and nr of conclusion sentences per slide.
+```{r conclusion_density}
+conclusion_density(s)
+```
+#### Evaluate scientific novelty by calculating overall novety score
+```{r novel_info}
+novel_info(s)
+```
+
+#### Evaluate efficacy of scientific storytelling/communciation by detecting number of "complete cycles" of Problem (P), Evidence (E) or Resolution (R) sequences. Labels each sentence Problem (P), Evidence (E) or Resolution (R) by its dominant words and detected PER cycles.
+
+```{r storytelling}
+storytelling(s)
+```
+#### Identify clinical relevance by detecting clinical and mechanistic sentences, creating neighborhood around clinical sentences and evalueates if there are mechanistic sentences next to them. Example: total score of 0.6 would mean that 60% of mechanistic discussion is placed next to clinical discussion.
+```{r clinical_relevance}
+clinical_relevance(s)
+```
+
+#### Evaluate reinforcement score by detecting repetative key concepts.
+```{r reinforcement}
+reinforcement(s, default_lexicons()$key_concepts)
+```
+#### Evaluate scientific uncertainty score by detecting proportion of "uncertain terms".
+```{r uncertainty}
+uncertainty(s)
+```
+
+#### Evaluate overall profile of scientific talk.
+```{r talk_profile}
+profile <- talk_profile(f)
+profile
+
+names(profile$details)
+
+str(profile$details)
+```
+
+```{r end}
+sessionInfo()
+```
+

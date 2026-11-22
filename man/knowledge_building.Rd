@@ -2,7 +2,7 @@
 % Please edit documentation in R/metrics.R
 \name{knowledge_building}
 \alias{knowledge_building}
-\title{Knowledge-Building Score}
+\title{Knowledge-building Score}
 \usage{
 knowledge_building(s, lex = default_lexicons())
 }
@@ -15,5 +15,5 @@ knowledge_building(s, lex = default_lexicons())
 List with \code{score}, \code{fact}, \code{interpretation}.
 }
 \description{
-Balance between factual statements and interpretation (1 = perfectly balanced).
+Balance between facts and interpretation (1 = perfectly balanced).
 }

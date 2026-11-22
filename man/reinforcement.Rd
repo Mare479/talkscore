@@ -16,5 +16,5 @@ List with \code{score} (mean share of slides mentioning each concept),
 \code{spread}, \code{frequency}, \code{by_slide} (slide x concept count matrix).
 }
 \description{
-How often and how widely key concepts are revisited across slides.
+How often key concepts are mentioned across slides.
 }

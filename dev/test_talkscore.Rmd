@@ -1,0 +1,90 @@
+### Developer script for testing TalkScore package
+
+This script aims to demonstrates every function in the package using example data set.
+
+```{r load}
+library(devtools)
+
+# Rebuild documentation
+document()
+
+# Load package
+load_all()
+```
+### Example dataset
+```{r ds}
+f <- system.file( "extdata", "talk.txt", package = "talkscore")
+```
+
+### talkscore setup
+```{r talkscore-setup}
+# Test read_talk()
+talk <- read_talk(f)
+print(class(talk))
+head(talk)
+
+# Test split_sentences()
+s <- split_sentences(talk) 
+head(s)
+```
+
+### Test functions
+```{r functions}
+# Test novelty detection
+novelty <- flag_novelty(s)
+novelty
+
+# Test metrics
+knowledge_building(s)
+
+conclusion_density(s)
+
+novel_info(s)
+
+storytelling(s)
+
+clinical_relevance(s)
+
+reinforcement(s, default_lexicons()$key_concepts)
+
+uncertainty(s)
+
+
+# Test full profile
+profile <- talk_profile(f)
+profile
+
+# View details of results
+names(profile$details)
+
+str(profile$details)
+```
+
+
+### Check in new session to simulate external user
+```{r newsession}
+# Package check
+check()
+# Install package
+install()
+# Simulate new session and see if it works
+.rs.restartR()
+
+library(talkscore)
+
+f <- system.file("extdata", "talk.txt", package = "talkscore")
+
+profile <- talk_profile(f)
+
+print(profile)
+```
+
+```{r vignette}
+browseVignettes("talkscore")
+```
+
+
+```{r end}
+sessionInfo()
+```
+

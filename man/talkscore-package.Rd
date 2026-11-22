@@ -17,6 +17,14 @@ Workflow: \code{\link[=read_talk]{read_talk()}} -> \code{\link[=split_sentences]
 all driven by \code{\link[=default_lexicons]{default_lexicons()}}. \code{\link[=talk_profile]{talk_profile()}} runs everything and
 returns a \code{talk_profile} object.
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/Mare479/talkscore}
+  \item Report bugs at \url{https://github.com/Mare479/talkscore/issues}
+}
+
+}
 \author{
 \strong{Maintainer}: Marina Galesic \email{marina.galesic@ki.se}
 
