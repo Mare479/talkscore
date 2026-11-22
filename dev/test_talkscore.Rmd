@@ -54,7 +54,6 @@ uncertainty(s)
 profile <- talk_profile(f)
 profile
 
-# View details of results
 names(profile$details)
 
 str(profile$details)

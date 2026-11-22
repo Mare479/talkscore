@@ -80,8 +80,9 @@ knitr::kable(as.data.frame(cr),
 #### Evaluate reinforcement score by detecting repetitive key concepts.
 ```{r reinforcement}
 reinfor <- reinforcement(s, default_lexicons()$key_concepts)
-knitr::kable(as.data.frame(reinfor), 
-             caption = "Reinforcement of key concepts")
+knitr::kable(data.frame(Metric = "Reinforcement",
+    Score = round(reinfor$score, 2)),
+  caption = "Reinforcement of key concepts")
 ```
 
 #### Evaluate scientific uncertainty score by detecting proportion of "uncertain terms".
