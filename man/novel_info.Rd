@@ -2,7 +2,7 @@
 % Please edit documentation in R/metrics.R
 \name{novel_info}
 \alias{novel_info}
-\title{Novel Information Load}
+\title{Novel Information}
 \usage{
 novel_info(s, threshold = 0.5)
 }
@@ -15,6 +15,6 @@ novel_info(s, threshold = 0.5)
 List with \code{score}, \code{new_info_sentences}, \code{new_abbreviations}, \code{abbreviations}.
 }
 \description{
-Mean sentence novelty (see \code{\link[=flag_novelty]{flag_novelty()}}) plus count of newly introduced abbreviations
-(gene/protein/term names written in capitals, e.g. MDA5, ISG15).
+Mean sentence novelty (see \code{\link[=flag_novelty]{flag_novelty()}}) plus count of new introduced abbreviations
+(terms written in capitals like MDA5, ISG15).
 }

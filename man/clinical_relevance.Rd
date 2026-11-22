@@ -15,6 +15,6 @@ clinical_relevance(s, lex = default_lexicons())
 List with \code{score}, \code{clinical}, \code{mechanistic} (sentence counts).
 }
 \description{
-Share of mechanistic sentences that are the same as, or directly adjacent to,
-a clinical sentence.
+Proportion of mechanistic sentences that are directly adjacent to
+a sentence with clinical terms.
 }

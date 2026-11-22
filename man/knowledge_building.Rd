@@ -15,5 +15,5 @@ knowledge_building(s, lex = default_lexicons())
 List with \code{score}, \code{fact}, \code{interpretation}.
 }
 \description{
-Balance between facts and interpretation (1 = perfectly balanced).
+Balance between facts and interpretation (1 = perfect balance).
 }

@@ -15,5 +15,5 @@ uncertainty(s, lex = default_lexicons())
 List with \code{score}, \code{certainty}, \code{uncertainty}.
 }
 \description{
-Share of "uncertain terms" among certainty plus uncertainty terms (0 = all certain, 1 = all uncertain ).
+Proportion of "uncertain terms" among certainty plus uncertainty terms (0 = all certain, 1 = all uncertain ).
 }

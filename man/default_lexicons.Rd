@@ -10,6 +10,6 @@ default_lexicons()
 A named list of character vectors (regex patterns).
 }
 \description{
-Regular-expression word lists used by all metric functions. Edit or replace
-entries and pass the result as \code{lex}.
+This function creates a dictionary (lexicon)
+of words that other functions use.
 }

@@ -12,9 +12,9 @@ reinforcement(s, concepts = default_lexicons()$key_concepts)
 \item{concepts}{Regex patterns of key concepts.}
 }
 \value{
-List with \code{score} (mean share of slides mentioning each concept),
+List with \code{score} (mean of slides mentioning each key concept),
 \code{spread}, \code{frequency}, \code{by_slide} (slide x concept count matrix).
 }
 \description{
-How often key concepts are mentioned across slides.
+How often key concepts are mentioned across slides
 }
