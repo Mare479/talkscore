@@ -29,13 +29,14 @@ profile$details$reinforcement$by_slide
 
 TalkScore currently provides the following metrics:
 
-Knowledge Building Score
-Conclusion Density
-Novel Information Load
-Storytelling Score
-Clinical Relevance Score
-Reinforcement Score
-Scientific Uncertainty Score
+1. Knowledge Building Score
+2. Conclusion Density
+3. Novel Information Load
+4. Storytelling Score
+5. Clinical Relevance Score
+6. Reinforcement Score
+7. Scientific Uncertainty Score
+
 These metrics are combined into an overall presentation profile that can be 
 used to assess the communication flow of scientific talks.
 
