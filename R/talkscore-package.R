@@ -11,4 +11,5 @@
 #' returns a `talk_profile` object.
 #'
 #' @keywords internal
+#' #' @importFrom utils read.delim head tail
 "_PACKAGE"

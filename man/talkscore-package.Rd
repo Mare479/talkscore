@@ -34,4 +34,10 @@ Authors:
 }
 
 }
+\keyword{#'}
+\keyword{@importFrom}
+\keyword{head}
 \keyword{internal}
+\keyword{read.delim}
+\keyword{tail}
+\keyword{utils}
