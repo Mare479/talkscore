@@ -11,7 +11,8 @@ communication quality.
 You can install the development version of talkscore from a local source:
 
 install.packages("devtools")
-devtools::install_github("MarinaGalesic/talkscore")
+devtools::install_github("Mare479/talkscore",dependencies = TRUE,
+  build_vignettes = TRUE)
 
 # Example
 Load the package and analyze a presentation script using speaker notes:
