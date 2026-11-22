@@ -1,28 +1,31 @@
 ---
 title: "Talkscore-vignette"
-output: rmarkdown::html_vignette
+output:
+  rmarkdown::html_vignette:
+    highlight: null
 vignette: >
   %\VignetteIndexEntry{getting-started}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
-####Introduction
+Introduction
 
 TalkScore is an R package for semantic analysis of scientific presentation notes. It evaluates communication flow using metrics such as knowledge building, conclusion density, novelty, storytelling, clinical relevance, reinforcement of key concepts, and scientific uncertainty.
 This vignette demonstrates how to load data, generate an overall presentation profile as well as individual metrics, and interpret the results scores.
 
 
-```{r, include = FALSE}
+```{r setup, include=FALSE}
 knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>")
+  echo = TRUE,
+  message = FALSE,
+  warning = FALSE,
+  comment = NA
+)
 ```
 
-```{r setup}
+
+```{r preprocess}
 library(talkscore)
-```
-
-```{r talkscore-setup}
 f <- system.file( "extdata", "talk.txt", package = "talkscore")
 talk <- read_talk(f)
 print(class(talk))
@@ -30,60 +33,76 @@ knitr::kable(head(talk))
 
 s <- split_sentences(talk) 
 knitr::kable(head(s))
-
 ```
 
 #### Detect terms carrying scientific novelty 
 ```{r novelty}
 novelty <- flag_novelty(s)
-novelty
+knitr::kable(as.data.frame(novelty), 
+             caption = "Terms carrying scientific novelty")
 ```
 
 #### Evaluate balance between facts and interpretation (1 = perfect balance).
 ```{r knowledge_building}
-knowledge_building(s) 
+kb <- knowledge_building(s) 
+knitr::kable(as.data.frame(kb), 
+             caption = "Balance between facts and interpretation")
 ```
 
 #### Evaluate conclusion density by calculating proportion of sentences containing a conclusion word per slide. Returns overall score and nr of conclusion sentences per slide.
 ```{r conclusion_density}
-conclusion_density(s)
+cd <- conclusion_density(s)
+knitr::kable(as.data.frame(cd), 
+             caption = "Conclusion density")
 ```
 #### Evaluate scientific novelty by calculating overall novety score
 ```{r novel_info}
-novel_info(s)
+ni <- novel_info(s)
+knitr::kable(as.data.frame(ni), 
+             caption = "Scientific novelty")
 ```
 
-#### Evaluate efficacy of scientific storytelling/communciation by detecting number of "complete cycles" of Problem (P), Evidence (E) or Resolution (R) sequences. Labels each sentence as Problem (P), Evidence (E) or Resolution (R) by its dominant words and detects PER cycles.
+#### Evaluate efficacy of scientific storytelling/communciation flow by detecting number of "complete cycles" of Problem (P), Evidence (E) or Resolution (R) sequences. Labels each sentence as Problem (P), Evidence (E) or Resolution (R) by its dominant words and detects PER cycles.
 
 ```{r storytelling}
-storytelling(s)
-storytelling
+story <- storytelling(s)
+knitr::kable(as.data.frame(story), 
+             caption = "Problem (P), Evidence (E) or Resolution (R) flow")
 ```
 
 #### Identify clinical relevance by detecting clinical and mechanistic sentences, create neighborhood around clinical sentences and evaluate if there are mechanistic sentences next to them. Example: total score of 0.6 would mean that 60% of mechanistic discussion is placed next to clinical discussion.
 ```{r clinical_relevance}
-clinical_relevance(s)
-clinical_relevance
+cr <- clinical_relevance(s)
+knitr::kable(as.data.frame(cr), 
+             caption = "Mechanistic information joined with clinical relevance")
 ```
 
 #### Evaluate reinforcement score by detecting repetitive key concepts.
 ```{r reinforcement}
-reinforcement(s, default_lexicons()$key_concepts)
+reinfor <- reinforcement(s, default_lexicons()$key_concepts)
+knitr::kable(as.data.frame(reinfor), 
+             caption = "Reinforcement of key concepts")
 ```
 
 #### Evaluate scientific uncertainty score by detecting proportion of "uncertain terms".
 ```{r uncertainty}
-uncertainty(s)
+uncertain<- uncertainty(s)
+knitr::kable(as.data.frame(uncertain), 
+             caption = "Uncertanty score")
 ```
 
 #### Evaluate overall profile of scientific talk.
 ```{r talk_profile}
 profile <- talk_profile(f)
-profile
 
-names(profile$details)
+results <- data.frame(
+  Metric = names(profile$scores),
+  Score = round(as.numeric(profile$scores), 2))
 
-str(profile$details)
+knitr::kable(results,
+  col.names = c("Scientific metric", "Score"),
+  caption = "Overall TalkScore profile",
+  digits = 2)
 ```
 
 ```{r end}
