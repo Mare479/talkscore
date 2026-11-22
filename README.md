@@ -1,4 +1,4 @@
-####talkscore
+ # TalkScore
 
 TalkScore is an R package for semantic analysis of presentation scripts and 
 speaker notes. It classifies content into categories such as background, 
@@ -7,33 +7,25 @@ generating scores that evaluate scientific storytelling and
 communication quality.
 
 
-####Installation
+# Installation
 You can install the development version of talkscore from a local source:
 
-# install.packages("devtools")
-devtools::install("~/Desktop/talkscore")
+install.packages("devtools")
+devtools::install_github("MarinaGalesic/talkscore")
 
-#or if you do it from github: devtools::install_github("MarinaGalesic/talkscore")
+# Example
+Load the package and analyze a presentation script using speaker notes:
 
-####Example
-
-Load the package and analyze a presentation script:
-
+```
 library(talkscore)
+f <- system.file("extdata", "talk.txt", package = "talkscore") # Load example presentation
+profile <- talk_profile(f) # Generate an overall score of your talk 
+profile # View
 
-# Load example presentation
-f <- system.file("extdata", "talk.txt", package = "talkscore")
-
-# Generate presentation profile
-profile <- talk_profile(f)
-
-# View overall scores
-profile
-
-# Examine reinforcement of key concepts across slides
+# Examine reinforcement of key scientific concepts across slides
 profile$details$reinforcement$by_slide
-
-###Metrics
+```
+# Metrics
 
 TalkScore currently provides the following metrics:
 
@@ -45,14 +37,17 @@ Clinical Relevance Score
 Reinforcement Score
 Scientific Uncertainty Score
 These metrics are combined into an overall presentation profile that can be 
-used to assess the communication structure of scientific talks.
+used to assess the communication flow of scientific talks.
 
-Future Development
+![Figure 1](man/figures/figure1.png)
+
+# Future Development
 
 Future versions will use automated language analysis and machine 
 learning approaches to distinguish presentations intended for scientific, 
 clinical, or public audiences without relying on manually curated keyword 
-dictionaries.
+dictionaries. We hope these and similar algorithms will also help scientists 
+with grant writing and scientific communication overall.
 
 
 

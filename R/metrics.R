@@ -1,6 +1,6 @@
-#' Knowledge-Building Score
+#' Knowledge-building Score
 #'
-#' Balance between factual statements and interpretation (1 = perfectly balanced).
+#' Balance between facts and interpretation (1 = perfectly balanced).
 #'
 #' @param s Sentence data.frame from [split_sentences()].
 #' @param lex Word lists, see [default_lexicons()].
@@ -99,7 +99,7 @@ clinical_relevance <- function(s, lex = default_lexicons()) {
 
 #' Reinforcement Score
 #'
-#' How often and how widely key concepts are revisited across slides.
+#' How often key concepts are mentioned across slides.
 #'
 #' @inheritParams knowledge_building
 #' @param concepts Regex patterns of key concepts.
@@ -117,7 +117,7 @@ reinforcement <- function(s, concepts = default_lexicons()$key_concepts) {
 
 #' Scientific Uncertainty Score
 #'
-#' Share of hedging terms among certainty plus uncertainty terms (0 = all certain, 1 = all hedged).
+#' Share of "uncertain terms" among certainty plus uncertainty terms (0 = all certain, 1 = all uncertain ).
 #'
 #' @inheritParams knowledge_building
 #' @return List with `score`, `certainty`, `uncertainty`.
