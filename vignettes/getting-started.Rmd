@@ -6,6 +6,11 @@ vignette: >
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
+####Introduction
+
+TalkScore is an R package for semantic analysis of scientific presentation notes. It evaluates communication flow using metrics such as knowledge building, conclusion density, novelty, storytelling, clinical relevance, reinforcement of key concepts, and scientific uncertainty.
+This vignette demonstrates how to load data, generate an overall presentation profile as well as individual metrics, and interpret the results scores.
+
 
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
@@ -18,12 +23,14 @@ library(talkscore)
 ```
 
 ```{r talkscore-setup}
+f <- system.file( "extdata", "talk.txt", package = "talkscore")
 talk <- read_talk(f)
 print(class(talk))
-head(talk)
+knitr::kable(head(talk))
 
 s <- split_sentences(talk) 
-head(s)
+knitr::kable(head(s))
+
 ```
 
 #### Detect terms carrying scientific novelty 
@@ -46,20 +53,24 @@ conclusion_density(s)
 novel_info(s)
 ```
 
-#### Evaluate efficacy of scientific storytelling/communciation by detecting number of "complete cycles" of Problem (P), Evidence (E) or Resolution (R) sequences. Labels each sentence Problem (P), Evidence (E) or Resolution (R) by its dominant words and detected PER cycles.
+#### Evaluate efficacy of scientific storytelling/communciation by detecting number of "complete cycles" of Problem (P), Evidence (E) or Resolution (R) sequences. Labels each sentence as Problem (P), Evidence (E) or Resolution (R) by its dominant words and detects PER cycles.
 
 ```{r storytelling}
 storytelling(s)
-```
-#### Identify clinical relevance by detecting clinical and mechanistic sentences, creating neighborhood around clinical sentences and evalueates if there are mechanistic sentences next to them. Example: total score of 0.6 would mean that 60% of mechanistic discussion is placed next to clinical discussion.
-```{r clinical_relevance}
-clinical_relevance(s)
+storytelling
 ```
 
-#### Evaluate reinforcement score by detecting repetative key concepts.
+#### Identify clinical relevance by detecting clinical and mechanistic sentences, create neighborhood around clinical sentences and evaluate if there are mechanistic sentences next to them. Example: total score of 0.6 would mean that 60% of mechanistic discussion is placed next to clinical discussion.
+```{r clinical_relevance}
+clinical_relevance(s)
+clinical_relevance
+```
+
+#### Evaluate reinforcement score by detecting repetitive key concepts.
 ```{r reinforcement}
 reinforcement(s, default_lexicons()$key_concepts)
 ```
+
 #### Evaluate scientific uncertainty score by detecting proportion of "uncertain terms".
 ```{r uncertainty}
 uncertainty(s)

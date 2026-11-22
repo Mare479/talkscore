@@ -37,3 +37,4 @@ print.talk_profile <- function(x, ...) {
   print(round(x$scores, 2))
   invisible(x)
 }
+
